@@ -84,7 +84,7 @@ Any contributions to expand the functionalities or to improve the codebase are w
 
 ## Contact 
 
-[Utku Alcan] - [Mail][(aalcan.utku@gmail.com)] - [Linkedin](https://www.linkedin.com/in/utku-alcan-12090929b/)
+[Utku Alcan] - [Mail]aalcan.utku@gmail.com - [Linkedin](https://www.linkedin.com/in/utku-alcan-12090929b/)
 
 Project Link: [ExpGenWeb](https://github.com/utkualcan/ExpGenWeb)
 
