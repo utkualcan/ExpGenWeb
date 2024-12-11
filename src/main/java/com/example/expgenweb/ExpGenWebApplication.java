@@ -1,0 +1,13 @@
+package com.example.expgenweb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExpGenWebApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ExpGenWebApplication.class, args);
+    }
+
+}
