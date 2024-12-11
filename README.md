@@ -88,4 +88,4 @@ Any contributions to expand the functionalities or to improve the codebase are w
 
 Project Link: [ExpGenWeb](https://github.com/utkualcan/ExpGenWeb)
 
-Related Project Link: [expense-data-generator](https://github.com/utkualcan/expense-data-generator)
+Related Project Link: [expense-data-generator](https://github.com/utkualcan/expense-generator-project)
