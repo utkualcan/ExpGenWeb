@@ -32,7 +32,7 @@ Ensure you have the following software installed on your local machine:
 First, clone the repository to your local machine. You can do this by running the following command in your terminal:
 
 ```bash
-git clone https://github.com/your_username/employee-expenditure-handler.git
+git clone https://github.com/utkualcan/ExpGenWeb.git
 
 ```
 ### Set Up MySQL
@@ -45,7 +45,7 @@ Set up a Kafka instance.Configurate right ports for kafka. Make sure to start yo
 
 ```bash
 # Run cassandra
-sudo systemctl start cassandra
+sudo systemctl start kafka
 ```
 
 ### Set Up Spark
