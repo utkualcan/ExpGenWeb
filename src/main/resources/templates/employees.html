@@ -62,19 +62,30 @@
 
         .table-header {
             display: grid;
-            grid-template-columns: repeat(6, 1fr) 50px;
-            padding-bottom: .5rem;
+            grid-template-columns: 100px 75px 150px 100px 150px 100px 150px 150px 100px;
+            padding-bottom: 1rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
 
+        .table-header > p {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
         .table-item {
             display: grid;
-            grid-template-columns: repeat(6, 1fr) 50px;
+            grid-template-columns: 100px 75px 150px 100px 150px 100px 150px 150px 100px;
             padding: 1rem;
             border-radius: .5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .table-item > p {
+            align-self: center;
+            text-align: center;
         }
 
         .table-item:nth-child(even) {
@@ -112,39 +123,15 @@
             background: rgba(255, 255, 255, 0.5);
         }
 
-        .movie-poster {
-            width: 60px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-
         .table-item img {
-            flex: 0;
-        }
-
-        .action-btn {
-            display: inline-block;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 1);
-            border-radius: 0.5rem;
-            color: black;
-            transition: all 0.15s ease-in;
-            width: 100%;
-            text-align: center;
-        }
-
-        .action-btn:hover {
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-
-        .table-item p {
-            margin: 0;
-            padding: 0.5rem;
+            width: 75px;
+            height: 100px;
+            object-fit: cover;
         }
     </style>
     <meta charset="UTF-8">
     <title>Employees</title>
+    <meta http-equiv="refresh" content="3">
 </head>
 <body>
 <header class="header">
@@ -158,21 +145,25 @@
 <section>
     <h2 class="section-title">Employee List</h2>
     <div class="table-header">
+        <p>Employee ID</p>
+        <p>Photo</p>
         <p>Employee Name</p>
+        <p>Job</p>
         <p>Manager Name</p>
         <p>Salary</p>
-        <p>Commission</p>
         <p>Department</p>
-        <p>Image</p>
+        <p>Total Amount</p>
         <p>Actions</p>
     </div>
     <div class="table-item" th:each="employee : ${employees}">
+        <p th:text="${employee.empno}"></p>
+        <img th:src="@{/images/{imageName}(imageName=${employee.img})}" onerror="this.src='default-image.png'" />
         <p th:text="${employee.ename}"></p>
+        <p th:text="${employee.job}"></p>
         <p th:text="${employee.mgr != null ? (employeeService.findById(employee.mgr).ename) : ''}"></p>
         <p th:text="${employee.sal}"></p>
-        <p th:text="${employee.comm}"></p>
         <p th:text="${employee.department.dname}"></p>
-        <img th:src="@{/images/{imageName}(imageName=${employee.img})}" onerror="this.src='default-image.png'" class="movie-poster" />
+        <p th:text="${#numbers.formatDecimal(employeeService.getEmployeeTotalExpenses(employee.empno), 1, 2)}"></p>
         <div class="table-item__actions">
             <a th:href="@{/editEmployee/{empno}(empno=${employee.empno})}">Update</a>
             <a th:href="@{/deleteEmployee/{empno}(empno=${employee.empno})}" onclick="return confirm('Do you want to delete this?')">Delete</a>

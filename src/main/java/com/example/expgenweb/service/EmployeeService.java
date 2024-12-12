@@ -6,12 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private ExpenseService expenseService;
 
     public List<Employee> findAllWithManagers() {
         return employeeRepository.findAllWithManagers();
@@ -31,5 +35,13 @@ public class EmployeeService {
 
     public void deleteById(Integer empno) {
         employeeRepository.deleteById(empno);
+    }
+
+    public Double getEmployeeTotalExpenses(Integer empno) {
+        return expenseService.getTotalAmountForEmployee(empno);
+    }
+
+    public Map<Integer, Double> getAllEmployeeTotalExpenses() {
+        return expenseService.getAllEmployeesTotalAmount();
     }
 }
